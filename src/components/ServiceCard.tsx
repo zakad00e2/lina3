@@ -1,35 +1,14 @@
 "use client";
 
 import { useInView } from "@/hooks/useInView";
-import type { Service } from "@/data/services"/* Updated Icons - Simplified Geometric Style */
+import type { Service } from "@/data/services";
+import { Sofa, Trees, Lightbulb, ClipboardCheck } from "lucide-react";
+
 const iconPaths = {
-  interior: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="w-8 h-8">
-      <path d="M3 21h18M5 21V7l8-4 8 4v14" />
-      <path d="M9 10a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v11H9V10z" />
-    </svg>
-  ),
-  exterior: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="w-8 h-8">
-      <path d="M4 21V10s2-2 4-2c2 0 4 2 4 2s2-2 4-2c2 0 4 2 4 2s2-2 4-2c2 0 4 2 4 2v11" />
-      <path d="M8 21v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4" />
-    </svg>
-  ),
-  consultation: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="w-8 h-8">
-      <circle cx="12" cy="12" r="9" />
-      <path d="M9 12l2 2 4-4" />
-    </svg>
-  ),
-  supervision: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="w-8 h-8">
-      <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
-      <polyline points="14 2 14 8 20 8" />
-      <path d="M16 13H8" />
-      <path d="M16 17H8" />
-      <path d="M10 9H8" />
-    </svg>
-  ),
+  interior: <Sofa size={32} strokeWidth={1.2} />,
+  exterior: <Trees size={32} strokeWidth={1.2} />,
+  consultation: <Lightbulb size={32} strokeWidth={1.2} />,
+  supervision: <ClipboardCheck size={32} strokeWidth={1.2} />,
 };
 
 interface ServiceCardProps {
