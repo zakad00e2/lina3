@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-green-dark: #1f2a23;
+  --color-green-medium: #2a3830;
+  --color-green-light: #354538;
+  --color-gold: #c9a646;
+  --color-gold-light: #d4b85e;
+  --color-gold-dark: #b89535;
+  --color-cream: #f7f6f2;
+  --color-cream-dark: #eeedea;
+  --color-text-primary: #1f2a23;
+  --color-text-secondary: #5a6b5e;
+  --color-text-light: #8a9b8e;
+  --color-line: rgba(31, 42, 35, 0.08);
+  --color-line-gold: rgba(201, 166, 70, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  /* account for fixed navbar */
+}
+
+body {
+  background-color: #f7f6f2;
+  color: #1f2a23;
+  font-family: var(--font-ibm-arabic, "IBM Plex Sans Arabic", "Noto Sans Arabic", sans-serif);
+  line-height: 1.75;
+  /* fluid base: 16px → 18px */
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ───── Typography Scale ─────
+  xs  : 0.75 rem  (12 px)
+  sm  : 0.875 rem (14 px)
+  base: 1 rem     (16 px)
+  lg  : 1.125 rem (18 px)
+  xl  : 1.25 rem  (20 px)
+  2xl : 1.5 rem   (24 px)
+  3xl : 1.875 rem (30 px)
+  4xl : 2.25 rem  (36 px)
+  5xl : 3 rem     (48 px)
+  6xl : 3.75 rem  (60 px)
+  7xl : 4.5 rem   (72 px)
+  8xl : 6 rem     (96 px)
+─────────────────────────── */
+
+/* Blueprint Grid Overlay — opacity kept minimal to avoid visual noise */
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(31, 42, 35, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31, 42, 35, 0.018) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Used on dark (green-dark) hero backgrounds — slightly brighter */
+.blueprint-grid-dark {
+  background-image:
+    linear-gradient(rgba(247, 246, 242, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(247, 246, 242, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.blueprint-grid-dense {
+  background-image:
+    linear-gradient(rgba(31, 42, 35, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31, 42, 35, 0.025) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Architectural Lines */
+.arch-line-h {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(31, 42, 35, 0.12), transparent);
+}
+
+.arch-line-v {
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(31, 42, 35, 0.12), transparent);
+}
+
+.arch-line-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 166, 70, 0.4), transparent);
+}
+
+/* Coordinate Label */
+.coord-label {
+  font-size: 0.65rem;
+  font-family: monospace;
+  color: rgba(201, 166, 70, 0.55);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Section cap label — sits above headings */
+.section-overline {
+  display: block;
+  font-size: 0.65rem;
+  font-family: monospace;
+  color: rgba(201, 166, 70, 0.65);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+/* Reusable section container vertical rhythm */
+.section-py {
+  padding-top: clamp(4rem, 8vw, 7rem);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f7f6f2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(31, 42, 35, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(31, 42, 35, 0.35);
+}
+
+::selection {
+  background-color: rgba(201, 166, 70, 0.2);
+  color: #1f2a23;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes drawLine {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-draw-line {
+  animation: drawLine 0.8s ease-out forwards;
+  transform-origin: right;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+.delay-600 {
+  animation-delay: 600ms;
+}
+
+.delay-700 {
+  animation-delay: 700ms;
+}
+
+.delay-800 {
+  animation-delay: 800ms;
+}
+
+.observe-animate {
+  opacity: 0;
+}
+
+.observe-animate.is-visible {
+  opacity: 1;
+}
